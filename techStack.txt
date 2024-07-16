@@ -1,0 +1,29 @@
+Step 1 - The Stack
+
+I will be building the Medium Clone application in the following stack
+
+1. React.js -- frontend
+2. Cloudfare Workers -- backend (serverless functions)
+3. zod as a validation library, type interface for the frontend types (validation)
+4. Typescript -- programming language
+5. Prisma as the ORM, with connection pooling ** 
+6. Postgress  as the database
+7. JWT for authenication
+
+Step 2 - Initialize the backend
+
+When we are building a project, usually the first thing we  should do is initialise the project’s backend.
+
+Create a new folder called medium
+
+mkdir medium
+cd medium
+
+Initialize a hono based cloudflare worker app 
+
+npm create hono@latest
+
+Target directory › backend
+Which template do you want to use? - cloudflare-workers
+Do you want to install project dependencies? … yes
+Which package manager do you want to use? › npm (or yarn or bun, doesnt matter)
