@@ -16,6 +16,7 @@ app.post('/api/v1/blog', (c:any) =>{
 
 app.put('/api/v1/blog', (c:any) =>{
   return c.text('Hello Hono !!')
+  
 })
 
 app.get('/api/v1/blog/:id', (c:any) =>{
