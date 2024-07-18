@@ -8,12 +8,29 @@ const app = new Hono<{
   };
 }>();
 
-app.post("/api/v1/user/signup", (c: any) => {
+// user register route
+app.post("/api/v1/user/signup", async (c: any) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
 
-  return c.text("Hello Hono !!");
+  const body = await c.req.json();
+  try {
+    const user = await prisma.user.create({
+      data: {
+        username: body.username,
+        password: body.password,
+        name: body.name,
+      },
+    });
+    return c.text('User Created!!')
+
+  } catch (e) {
+    c.status(411);
+    return c.json({ error: "User already exists.." });
+  }
+
+  
 });
 
 app.post("/api/v1/user/signin", (c: any) => {
