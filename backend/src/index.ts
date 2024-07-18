@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+// import { User } from "@prisma/client";
 
 const app = new Hono()
 
